@@ -56,10 +56,10 @@ export default async function HomePage() {
           </p>
           <div className="animate-rise delay-3 mt-8 flex flex-wrap gap-3">
             <a
-              href="#services"
+              href="#tourism"
               className="rounded-full bg-amber px-6 py-3 text-sm font-semibold text-ink transition hover:brightness-110"
             >
-              查看服務板塊
+              查看套餐
             </a>
             <a
               href="#booking"
@@ -82,29 +82,6 @@ export default async function HomePage() {
               <h3 className="mt-2 font-display text-2xl">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink/70">{step.text}</p>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="services" className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <p className="text-sm uppercase tracking-[0.2em] text-jade-deep">Services</p>
-        <h2 className="mt-3 font-display text-3xl md:text-5xl">四大包車板塊</h2>
-        <p className="mt-3 max-w-xl text-ink/70">
-          依出行需求選擇板塊，每個板塊下都有對應產品套餐。
-        </p>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
-          {PRODUCT_CATEGORIES.map((category, index) => (
-            <a
-              key={category.id}
-              href={`#${category.anchor}`}
-              className="group border-t border-line pt-5 transition hover:border-jade"
-            >
-              <p className="text-sm text-jade-deep">0{index + 1}</p>
-              <h3 className="mt-2 font-display text-2xl group-hover:text-jade-deep">
-                {category.label}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink/70">{category.summary}</p>
-            </a>
           ))}
         </div>
       </section>
