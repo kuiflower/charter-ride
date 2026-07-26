@@ -49,8 +49,8 @@ const compareRows = [
   },
   {
     label: "專業資質",
-    ours: "具備日本政府核發旅行業執照",
-    theirs: "無正規旅行業執照",
+    ours: "具備日本政府核發旅行行業執照",
+    theirs: "無正規旅行行業執照",
   },
   {
     label: "車輛品質",
