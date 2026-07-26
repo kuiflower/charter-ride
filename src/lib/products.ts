@@ -2,10 +2,12 @@ import { promises as fs } from "fs";
 import path from "path";
 import { randomUUID } from "crypto";
 import { isProductCategoryId } from "./categories";
+import { getBundledDataFile, getDataDir } from "./paths";
 import type { Product, ProductInput } from "./types";
 
-const DATA_DIR = path.join(process.cwd(), "data");
+const DATA_DIR = getDataDir();
 const DATA_FILE = path.join(DATA_DIR, "products.json");
+const BUNDLED_FILE = getBundledDataFile("products.json");
 
 const seedProducts: Product[] = [
   {
@@ -196,7 +198,12 @@ async function ensureDataFile() {
   try {
     await fs.access(DATA_FILE);
   } catch {
-    await fs.writeFile(DATA_FILE, JSON.stringify(seedProducts, null, 2), "utf8");
+    try {
+      const bundled = await fs.readFile(BUNDLED_FILE, "utf8");
+      await fs.writeFile(DATA_FILE, bundled, "utf8");
+    } catch {
+      await fs.writeFile(DATA_FILE, JSON.stringify(seedProducts, null, 2), "utf8");
+    }
   }
 }
 

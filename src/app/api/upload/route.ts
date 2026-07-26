@@ -4,8 +4,8 @@ import path from "path";
 import sharp from "sharp";
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/auth";
+import { getUploadDir, toPublicUploadUrl } from "@/lib/paths";
 
-const UPLOAD_DIR = path.join(process.cwd(), "public", "uploads");
 const ALLOWED = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
 
 const TARGETS = {
@@ -28,7 +28,6 @@ async function processImage(buffer: Buffer, kind: UploadKind) {
 
   const exceeds = width > target.width || height > target.height;
   if (!exceeds) {
-    // 未超出建議尺寸：保留原圖，統一轉成高品質 JPEG 方便前台載入
     const output = await image.jpeg({ quality: 88, mozjpeg: true }).toBuffer();
     return {
       buffer: output,
@@ -40,7 +39,6 @@ async function processImage(buffer: Buffer, kind: UploadKind) {
     };
   }
 
-  // 超出尺寸：依目標比例居中裁剪，並縮放到建議尺寸
   const output = await image
     .resize(target.width, target.height, {
       fit: "cover",
@@ -82,7 +80,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "原圖不可超過 8MB" }, { status: 400 });
   }
 
-  await fs.mkdir(UPLOAD_DIR, { recursive: true });
+  const uploadDir = getUploadDir();
+  await fs.mkdir(uploadDir, { recursive: true });
 
   const input = Buffer.from(await file.arrayBuffer());
   let processed;
@@ -93,10 +92,10 @@ export async function POST(request: Request) {
   }
 
   const filename = `${Date.now()}-${randomUUID().slice(0, 8)}.jpg`;
-  await fs.writeFile(path.join(UPLOAD_DIR, filename), processed.buffer);
+  await fs.writeFile(path.join(uploadDir, filename), processed.buffer);
 
   return NextResponse.json({
-    url: `/uploads/${filename}`,
+    url: toPublicUploadUrl(filename),
     cropped: processed.cropped,
     originalSize: { width: processed.width, height: processed.height },
     outputSize: {
