@@ -169,63 +169,40 @@ export function TrustSections() {
           </p>
         </div>
 
-        <div className="mt-8 hidden overflow-hidden rounded-[1.25rem] border border-[#dce3df] md:mt-10 md:block">
-          <div className="grid grid-cols-[0.7fr_1.15fr_1.15fr]">
-            <div className="bg-[#eef2f0] px-5 py-5 text-sm font-medium text-[#6b7872]">
-              對比項目
-            </div>
-            <div className="bg-jade px-5 py-5 text-sm font-semibold tracking-wide text-white">
-              遇見沖繩 · 正規綠牌
-            </div>
-            <div className="bg-ink px-5 py-5 text-sm font-medium text-foam/75">
-              非法白牌 · 風險對照
-            </div>
-          </div>
-          {compareRows.map((row, index) => (
-            <div
-              key={row.label}
-              className={`grid grid-cols-[0.7fr_1.15fr_1.15fr] ${
-                index < compareRows.length - 1 ? "border-b border-[#e6ebe8]" : ""
-              }`}
-            >
-              <div className="bg-white px-5 py-5 text-sm font-semibold text-ink/75">
-                {row.label}
+        <div className="-mx-5 mt-8 overflow-x-auto px-5 md:mx-0 md:mt-10 md:overflow-visible md:px-0">
+          <div className="min-w-[640px] overflow-hidden rounded-[1.25rem] border border-[#dce3df] md:min-w-0">
+            <div className="grid grid-cols-[0.7fr_1.15fr_1.15fr]">
+              <div className="bg-[#eef2f0] px-3 py-4 text-[13px] font-medium text-[#6b7872] md:px-5 md:py-5 md:text-sm">
+                對比項目
               </div>
-              <div className="bg-[#e8f3ee] px-5 py-5 text-sm font-medium leading-relaxed text-jade-deep">
-                <span className="mr-2 inline-block text-jade">✓</span>
-                {row.ours}
+              <div className="bg-jade px-3 py-4 text-[13px] font-semibold tracking-wide text-white md:px-5 md:py-5 md:text-sm">
+                遇見沖繩 · 正規綠牌
               </div>
-              <div className="bg-white px-5 py-5 text-sm leading-relaxed text-[#9aa3a0]">
-                <span className="mr-2 inline-block text-[#c5cbc8]">✕</span>
-                {row.theirs}
+              <div className="bg-ink px-3 py-4 text-[13px] font-medium text-foam/75 md:px-5 md:py-5 md:text-sm">
+                非法白牌 · 風險對照
               </div>
             </div>
-          ))}
-        </div>
-
-        <div className="mt-8 space-y-4 md:hidden">
-          {compareRows.map((row) => (
-            <article
-              key={row.label}
-              className="overflow-hidden rounded-[14px] border border-[#dce3df] bg-white shadow-[0_1px_2px_rgba(15,41,34,0.04)]"
-            >
-              <div className="border-b border-[#e6ebe8] bg-[#eef2f0] px-4 py-3">
-                <p className="text-center text-[15px] font-medium tracking-wide text-[#6b7872]">
+            {compareRows.map((row, index) => (
+              <div
+                key={row.label}
+                className={`grid grid-cols-[0.7fr_1.15fr_1.15fr] ${
+                  index < compareRows.length - 1 ? "border-b border-[#e6ebe8]" : ""
+                }`}
+              >
+                <div className="bg-white px-3 py-4 text-[13px] font-semibold text-ink/75 md:px-5 md:py-5 md:text-sm">
                   {row.label}
-                </p>
+                </div>
+                <div className="bg-[#e8f3ee] px-3 py-4 text-[13px] font-medium leading-relaxed text-jade-deep md:px-5 md:py-5 md:text-sm">
+                  <span className="mr-1.5 inline-block text-jade md:mr-2">✓</span>
+                  {row.ours}
+                </div>
+                <div className="bg-white px-3 py-4 text-[13px] leading-relaxed text-[#9aa3a0] md:px-5 md:py-5 md:text-sm">
+                  <span className="mr-1.5 inline-block text-[#c5cbc8] md:mr-2">✕</span>
+                  {row.theirs}
+                </div>
               </div>
-
-              <div className="border-b border-[#e6ebe8] bg-[#e8f3ee] px-4 py-4">
-                <p className="text-[15px] font-semibold text-jade-deep">遇見沖繩</p>
-                <p className="mt-1.5 text-[15px] leading-relaxed text-jade-deep">{row.ours}</p>
-              </div>
-
-              <div className="bg-white px-4 py-4">
-                <p className="text-[15px] font-medium text-[#8a9490]">非法白牌</p>
-                <p className="mt-1.5 text-[15px] leading-relaxed text-[#9aa3a0]">{row.theirs}</p>
-              </div>
-            </article>
-          ))}
+            ))}
+          </div>
         </div>
 
         <blockquote className="relative mt-12 overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,#0f2922_0%,#1a3d34_55%,#1f6b52_100%)] px-6 py-10 text-foam md:px-12 md:py-14">
