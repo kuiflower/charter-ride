@@ -161,21 +161,23 @@ export function TrustSections() {
       </section>
 
       <section id="compare" className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <div className="max-w-3xl">
+        <div className="mt-10 max-w-3xl">
           <p className="text-sm uppercase tracking-[0.2em] text-jade-deep">Compare</p>
-          <h2 className="mt-3 font-display text-3xl md:text-5xl">用車對比指南</h2>
-          <p className="mt-3 text-ink/70">
+          <h2 className="mt-3 font-display text-3xl text-ink md:text-5xl">用車對比指南</h2>
+          <p className="mt-3 text-[15px] leading-relaxed text-ink/65 md:text-base">
             一眼看懂正規綠牌包車與非法白牌的差異，讓您在沖繩出行更安心。
           </p>
         </div>
 
-        <div className="mt-10 hidden overflow-hidden rounded-[1.75rem] border border-line md:block">
+        <div className="mt-8 hidden overflow-hidden rounded-[1.25rem] border border-[#dce3df] md:mt-10 md:block">
           <div className="grid grid-cols-[0.7fr_1.15fr_1.15fr]">
-            <div className="bg-mist px-5 py-5 text-sm font-medium text-ink/50">對比項目</div>
+            <div className="bg-[#eef2f0] px-5 py-5 text-sm font-medium text-[#6b7872]">
+              對比項目
+            </div>
             <div className="bg-jade px-5 py-5 text-sm font-semibold tracking-wide text-white">
               遇見沖繩 · 正規綠牌
             </div>
-            <div className="bg-ink/90 px-5 py-5 text-sm font-medium text-foam/70">
+            <div className="bg-ink px-5 py-5 text-sm font-medium text-foam/75">
               非法白牌 · 風險對照
             </div>
           </div>
@@ -183,18 +185,18 @@ export function TrustSections() {
             <div
               key={row.label}
               className={`grid grid-cols-[0.7fr_1.15fr_1.15fr] ${
-                index < compareRows.length - 1 ? "border-b border-line" : ""
+                index < compareRows.length - 1 ? "border-b border-[#e6ebe8]" : ""
               }`}
             >
-              <div className="bg-mist/80 px-5 py-5 text-sm font-medium text-ink/65">
+              <div className="bg-white px-5 py-5 text-sm font-semibold text-ink/75">
                 {row.label}
               </div>
-              <div className="bg-foam/80 px-5 py-5 text-sm font-medium leading-relaxed text-jade-deep">
+              <div className="bg-[#e8f3ee] px-5 py-5 text-sm font-medium leading-relaxed text-jade-deep">
                 <span className="mr-2 inline-block text-jade">✓</span>
                 {row.ours}
               </div>
-              <div className="bg-white px-5 py-5 text-sm leading-relaxed text-ink/45">
-                <span className="mr-2 inline-block text-ink/30">✕</span>
+              <div className="bg-white px-5 py-5 text-sm leading-relaxed text-[#9aa3a0]">
+                <span className="mr-2 inline-block text-[#c5cbc8]">✕</span>
                 {row.theirs}
               </div>
             </div>
@@ -203,17 +205,26 @@ export function TrustSections() {
 
         <div className="mt-8 space-y-4 md:hidden">
           {compareRows.map((row) => (
-            <div key={row.label} className="overflow-hidden rounded-2xl border border-line">
-              <p className="bg-mist px-4 py-3 text-sm font-medium text-ink/65">{row.label}</p>
-              <div className="border-t border-line bg-foam/80 px-4 py-3">
-                <p className="text-xs font-semibold text-jade-deep">遇見沖繩</p>
-                <p className="mt-1 text-sm text-jade-deep">{row.ours}</p>
+            <article
+              key={row.label}
+              className="overflow-hidden rounded-[14px] border border-[#dce3df] bg-white shadow-[0_1px_2px_rgba(15,41,34,0.04)]"
+            >
+              <div className="border-b border-[#e6ebe8] bg-[#eef2f0] px-4 py-3">
+                <p className="text-center text-[15px] font-medium tracking-wide text-[#6b7872]">
+                  {row.label}
+                </p>
               </div>
-              <div className="border-t border-line bg-white px-4 py-3">
-                <p className="text-xs font-semibold text-ink/45">非法白牌</p>
-                <p className="mt-1 text-sm text-ink/50">{row.theirs}</p>
+
+              <div className="border-b border-[#e6ebe8] bg-[#e8f3ee] px-4 py-4">
+                <p className="text-[15px] font-semibold text-jade-deep">遇見沖繩</p>
+                <p className="mt-1.5 text-[15px] leading-relaxed text-jade-deep">{row.ours}</p>
               </div>
-            </div>
+
+              <div className="bg-white px-4 py-4">
+                <p className="text-[15px] font-medium text-[#8a9490]">非法白牌</p>
+                <p className="mt-1.5 text-[15px] leading-relaxed text-[#9aa3a0]">{row.theirs}</p>
+              </div>
+            </article>
           ))}
         </div>
 
