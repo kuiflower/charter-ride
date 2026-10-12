@@ -6,10 +6,7 @@ import { ProductGallery } from "@/components/ProductGallery";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getCategoryLabel } from "@/lib/categories";
 import { formatPrice } from "@/lib/format";
-import {
-  COMMON_PRODUCT_TEMPLATES,
-  getProductSpecificDetailImages,
-} from "@/lib/product-templates";
+import { getDisplayDetailImages } from "@/lib/product-templates";
 import { getProduct } from "@/lib/products";
 
 export const dynamic = "force-dynamic";
@@ -21,7 +18,7 @@ export default async function ProductDetailPage({ params }: Props) {
   const product = await getProduct(id);
   if (!product || !product.published) notFound();
 
-  const specificImages = getProductSpecificDetailImages(product.detailImages);
+  const detailImages = getDisplayDetailImages(product.detailImages);
 
   return (
     <div className="min-h-screen bg-mist text-ink">
@@ -82,14 +79,13 @@ export default async function ProductDetailPage({ params }: Props) {
           </p>
         </div>
 
-        {specificImages.length > 0 ? (
+        {detailImages.length > 0 ? (
           <div className="mt-12">
-            <h2 className="font-display text-2xl">商品詳情圖</h2>
-            <p className="mt-2 text-sm text-ink/55">本商品專屬說明圖</p>
+            <h2 className="font-display text-2xl">產品詳情圖</h2>
             <div className="mx-auto mt-5 flex max-w-3xl flex-col gap-3">
-              {specificImages.map((url, index) => (
+              {detailImages.map((url, index) => (
                 <div
-                  key={`specific-${url}-${index}`}
+                  key={`${url}-${index}`}
                   className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_8px_30px_rgba(15,33,51,0.06)]"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -103,28 +99,6 @@ export default async function ProductDetailPage({ params }: Props) {
             </div>
           </div>
         ) : null}
-
-        <div className="mt-12">
-          <h2 className="font-display text-2xl">通用說明模版</h2>
-          <p className="mt-2 text-sm text-ink/55">
-            所有商品預設顯示的共用說明圖（共 {COMMON_PRODUCT_TEMPLATES.length} 張）
-          </p>
-          <div className="mx-auto mt-5 flex max-w-3xl flex-col gap-3">
-            {COMMON_PRODUCT_TEMPLATES.map((url, index) => (
-              <div
-                key={`template-${url}-${index}`}
-                className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_8px_30px_rgba(15,33,51,0.06)]"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={url}
-                  alt={`通用模版圖 ${index + 1}`}
-                  className="block h-auto w-full"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
 
         <div className="mt-14 border-t border-line pt-10">
           <h2 className="font-display text-3xl">預約此套餐</h2>
