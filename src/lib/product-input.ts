@@ -1,4 +1,5 @@
 import { isProductCategoryId } from "@/lib/categories";
+import { getProductSpecificDetailImages } from "@/lib/product-templates";
 import type { ProductInput } from "@/lib/types";
 
 type ProductInputBody = Omit<Partial<ProductInput>, "features" | "detailImages"> & {
@@ -57,7 +58,7 @@ export function normalizeProductInput(body: ProductInputBody): ProductInput | nu
     capacity,
     vehicleType,
     imageUrl,
-    detailImages: parseList(body.detailImages),
+    detailImages: getProductSpecificDetailImages(parseList(body.detailImages)),
     features: parseList(body.features),
     published: Boolean(body.published),
   };

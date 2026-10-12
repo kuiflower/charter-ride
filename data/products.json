@@ -18,20 +18,8 @@
     ],
     "published": true,
     "createdAt": "2026-07-01T00:00:00.000Z",
-    "updatedAt": "2026-10-12T13:28:00.000Z",
-    "detailImages": [
-      "/products/day-tour/02-highlights.jpg",
-      "/products/day-tour/03-vehicles.jpg",
-      "/products/day-tour/12-space.jpg",
-      "/products/day-tour/13-luggage.jpg",
-      "/products/day-tour/04-price.jpg",
-      "/products/day-tour/11-deposit.jpg",
-      "/products/day-tour/05-include.jpg",
-      "/products/day-tour/09-notes.jpg",
-      "/products/day-tour/10-cancel.jpg",
-      "/products/day-tour/06-family.jpg",
-      "/products/day-tour/08-trust.jpg"
-    ],
+    "updatedAt": "2026-10-12T14:04:00.000Z",
+    "detailImages": [],
     "showPrice": true
   },
   {
@@ -53,10 +41,8 @@
     ],
     "published": true,
     "createdAt": "2026-07-01T00:00:00.000Z",
-    "updatedAt": "2026-07-01T00:00:00.000Z",
-    "detailImages": [
-      "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?auto=format&fit=crop&w=1200&q=80"
-    ],
+    "updatedAt": "2026-10-12T14:04:00.000Z",
+    "detailImages": [],
     "showPrice": true
   }
 ]

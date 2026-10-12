@@ -1,56 +1,23 @@
 "use client";
 
-import { useState } from "react";
-
 type Props = {
   name: string;
   coverUrl: string;
-  detailImages: string[];
 };
 
-export function ProductGallery({ name, coverUrl, detailImages }: Props) {
-  const images = [coverUrl, ...detailImages].filter(
-    (url, index, list) => Boolean(url) && list.indexOf(url) === index,
-  );
-  const [active, setActive] = useState(images[0] ?? coverUrl);
-
+/** 商品主圖區：僅展示封面／主圖 */
+export function ProductGallery({ name, coverUrl }: Props) {
   return (
-    <div className="space-y-4">
-      <div className="overflow-hidden rounded-[1.75rem] bg-white">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={active}
-          alt={name}
-          className="aspect-[16/11] w-full object-cover transition duration-500"
-        />
-      </div>
-
-      {images.length > 1 ? (
-        <div className="grid grid-cols-4 gap-2 sm:grid-cols-5 md:gap-3">
-          {images.map((url, index) => {
-            const selected = url === active;
-            return (
-              <button
-                key={`${url}-${index}`}
-                type="button"
-                onClick={() => setActive(url)}
-                className={`overflow-hidden rounded-xl border-2 transition ${
-                  selected
-                    ? "border-jade shadow-[0_0_0_2px_rgba(47,127,184,0.2)]"
-                    : "border-transparent opacity-80 hover:opacity-100"
-                }`}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={url}
-                  alt={`${name} 圖片 ${index + 1}`}
-                  className="aspect-[4/3] w-full object-cover"
-                />
-              </button>
-            );
-          })}
-        </div>
-      ) : null}
+    <div className="overflow-hidden rounded-[1.75rem] bg-white shadow-[0_12px_40px_rgba(15,33,51,0.08)]">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={coverUrl}
+        alt={name}
+        className="aspect-[16/11] w-full object-cover"
+      />
+      <p className="border-t border-line bg-foam/50 px-4 py-2 text-xs text-ink/50">
+        商品主圖
+      </p>
     </div>
   );
 }

@@ -3,6 +3,10 @@
 import { FormEvent, useRef, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { PRODUCT_CATEGORIES } from "@/lib/categories";
+import {
+  COMMON_PRODUCT_TEMPLATES,
+  getProductSpecificDetailImages,
+} from "@/lib/product-templates";
 import type { Product, ProductInput } from "@/lib/types";
 
 const emptyForm: ProductInput = {
@@ -62,7 +66,8 @@ export function ProductForm({ initial, mode }: Props) {
           capacity: initial.capacity,
           vehicleType: initial.vehicleType,
           imageUrl: initial.imageUrl,
-          detailImages: initial.detailImages ?? [],
+          // 編輯時排除通用模版，避免與「預設模版」重複保存
+          detailImages: getProductSpecificDetailImages(initial.detailImages),
           features: initial.features,
           published: initial.published,
         }
@@ -133,7 +138,7 @@ export function ProductForm({ initial, mode }: Props) {
   async function onSubmit(event: FormEvent) {
     event.preventDefault();
     if (!form.imageUrl.trim()) {
-      setError("請先上傳封面圖");
+      setError("請先上傳商品主圖");
       return;
     }
 
@@ -259,13 +264,11 @@ export function ProductForm({ initial, mode }: Props) {
       </label>
 
       <div className="rounded-2xl border border-dashed border-jade/40 bg-foam/40 p-4 md:p-5">
-        <p className="text-sm font-medium text-ink">封面圖（本地上傳）</p>
+        <p className="text-sm font-medium text-ink">商品主圖（每個商品獨有）</p>
         <p className="mt-2 text-xs leading-relaxed text-ink/60">
-          建議尺寸：1600 × 1100 px（約 16:11），最小寬度 1200 px。
+          僅此圖會作為商品主視覺／列表封面。建議尺寸：1600 × 1100 px（約 16:11）。
           <br />
-          格式：JPG / PNG / WEBP / GIF；原圖不超過 8MB。
-          <br />
-          若超出建議尺寸，系統會自動居中裁剪並縮放至 1600 × 1100。
+          格式：JPG / PNG / WEBP / GIF；原圖不超過 8MB。超出尺寸會自動裁剪。
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <input
@@ -284,12 +287,12 @@ export function ProductForm({ initial, mode }: Props) {
             disabled={uploadingCover}
             className="rounded-full bg-jade px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-jade-deep disabled:opacity-60"
           >
-            {uploadingCover ? "上傳中..." : form.imageUrl ? "重新上傳封面圖" : "上傳封面圖"}
+            {uploadingCover ? "上傳中..." : form.imageUrl ? "重新上傳主圖" : "上傳商品主圖"}
           </button>
           {form.imageUrl ? (
-            <span className="text-xs text-jade-deep">已設定封面圖</span>
+            <span className="text-xs text-jade-deep">已設定商品主圖</span>
           ) : (
-            <span className="text-xs text-red-500">尚未上傳封面圖</span>
+            <span className="text-xs text-red-500">尚未上傳商品主圖</span>
           )}
         </div>
         {form.imageUrl ? (
@@ -297,7 +300,7 @@ export function ProductForm({ initial, mode }: Props) {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={form.imageUrl}
-              alt="封面預覽"
+              alt="主圖預覽"
               className="aspect-[16/11] max-h-64 w-full object-cover"
             />
           </div>
@@ -305,13 +308,11 @@ export function ProductForm({ initial, mode }: Props) {
       </div>
 
       <div className="rounded-2xl border border-line bg-white p-4 md:p-5">
-        <p className="text-sm font-medium text-ink">產品詳情圖（可多張上傳）</p>
+        <p className="text-sm font-medium text-ink">商品專屬詳情圖（可選）</p>
         <p className="mt-2 text-xs leading-relaxed text-ink/60">
-          建議尺寸：1200 × 900 px（約 4:3），最小寬度 1000 px。
+          僅本商品額外說明用，會顯示在通用模版圖上方。非必填。
           <br />
-          格式：JPG / PNG / WEBP / GIF；原圖不超過 8MB，可一次選擇多張。
-          <br />
-          若超出建議尺寸，系統會自動居中裁剪並縮放至 1200 × 900。
+          建議尺寸：1200 × 900 px；可一次多選上傳。
         </p>
         <div className="mt-4">
           <input
@@ -332,7 +333,7 @@ export function ProductForm({ initial, mode }: Props) {
             className="inline-flex items-center gap-2 rounded-full bg-amber px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:brightness-110 disabled:opacity-60"
           >
             <span className="text-base leading-none">＋</span>
-            {uploadingDetails ? "上傳中..." : "選擇並上傳詳情圖"}
+            {uploadingDetails ? "上傳中..." : "上傳專屬詳情圖"}
           </button>
         </div>
         {form.detailImages.length > 0 ? (
@@ -340,7 +341,7 @@ export function ProductForm({ initial, mode }: Props) {
             {form.detailImages.map((url) => (
               <div key={url} className="relative overflow-hidden rounded-xl border border-line">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={url} alt="詳情圖" className="aspect-[4/3] w-full object-cover" />
+                <img src={url} alt="專屬詳情圖" className="aspect-[4/3] w-full object-cover" />
                 <button
                   type="button"
                   onClick={() => removeDetailImage(url)}
@@ -352,8 +353,29 @@ export function ProductForm({ initial, mode }: Props) {
             ))}
           </div>
         ) : (
-          <p className="mt-3 text-xs text-ink/45">尚未上傳詳情圖</p>
+          <p className="mt-3 text-xs text-ink/45">尚未上傳專屬詳情圖（可略過）</p>
         )}
+      </div>
+
+      <div className="rounded-2xl border border-line bg-foam/30 p-4 md:p-5">
+        <p className="text-sm font-medium text-ink">
+          通用模版圖（新建商品預設顯示）
+        </p>
+        <p className="mt-2 text-xs leading-relaxed text-ink/60">
+          以下 {COMMON_PRODUCT_TEMPLATES.length}{" "}
+          張為全站共用說明圖，會自動出現在每個商品詳情最下方，無需重複上傳。
+        </p>
+        <div className="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6">
+          {COMMON_PRODUCT_TEMPLATES.map((url) => (
+            <div
+              key={url}
+              className="overflow-hidden rounded-lg border border-line bg-white"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={url} alt="通用模版" className="aspect-[4/3] w-full object-cover" />
+            </div>
+          ))}
+        </div>
       </div>
 
       <Field label="一句話簡介">
