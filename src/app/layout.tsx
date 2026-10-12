@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
+import { ContactFab } from "@/components/ContactFab";
 import "./globals.css";
 
 const sans = Noto_Sans_SC({
@@ -29,7 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-Hant" className={`${sans.variable} ${display.variable} h-full`}>
-      <body className="min-h-full antialiased">{children}</body>
+      <body className="min-h-full antialiased">
+        {children}
+        <ContactFab />
+      </body>
     </html>
   );
 }

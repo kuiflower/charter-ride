@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BrandLogo } from "@/components/BrandLogo";
+import { AccessiblePriceTable } from "@/components/AccessiblePriceTable";
+import { AirportBusPriceTable } from "@/components/AirportBusPriceTable";
+import { AirportCarPriceTable } from "@/components/AirportCarPriceTable";
+import { BusPriceTable } from "@/components/BusPriceTable";
 import { CruisePriceTable } from "@/components/CruisePriceTable";
 import { ProductBookingPanel } from "@/components/ProductBookingPanel";
 import { ProductGallery } from "@/components/ProductGallery";
@@ -26,6 +30,10 @@ export default async function ProductDetailPage({ params }: Props) {
     (url) => !url.includes("/04-price."),
   );
   const showCruisePriceTable = product.category === "cruise";
+  const showBusPriceTable = product.category === "bus";
+  const showAirportBusPriceTable = product.id === "seed-airport-bus";
+  const showAirportCarPriceTable = product.id === "seed-airport-car";
+  const showAccessiblePriceTable = product.category === "accessible";
 
   return (
     <div className="min-h-screen bg-mist text-ink">
@@ -86,12 +94,18 @@ export default async function ProductDetailPage({ params }: Props) {
           </p>
         </div>
 
-        {specificImages.length > 0 ? (
-          <div className="mx-auto mt-12 flex max-w-3xl flex-col gap-3">
+        {specificImages.length > 0 ||
+        showCruisePriceTable ||
+        showBusPriceTable ||
+        showAirportBusPriceTable ||
+        showAirportCarPriceTable ||
+        showAccessiblePriceTable ||
+        COMMON_PRODUCT_TEMPLATES.length > 0 ? (
+          <div className="mx-auto mt-8 flex max-w-3xl flex-col gap-2">
             {specificImages.map((url, index) => (
               <div
                 key={`specific-${url}-${index}`}
-                className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_8px_30px_rgba(15,33,51,0.06)]"
+                className="overflow-hidden rounded-xl border border-line/80 bg-white"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -101,17 +115,17 @@ export default async function ProductDetailPage({ params }: Props) {
                 />
               </div>
             ))}
-          </div>
-        ) : null}
 
-        {showCruisePriceTable ? <CruisePriceTable /> : null}
+            {showCruisePriceTable ? <CruisePriceTable /> : null}
+            {showBusPriceTable ? <BusPriceTable /> : null}
+            {showAirportBusPriceTable ? <AirportBusPriceTable /> : null}
+            {showAirportCarPriceTable ? <AirportCarPriceTable /> : null}
+            {showAccessiblePriceTable ? <AccessiblePriceTable /> : null}
 
-        {COMMON_PRODUCT_TEMPLATES.length > 0 ? (
-          <div className="mx-auto mt-12 flex max-w-3xl flex-col gap-3">
             {COMMON_PRODUCT_TEMPLATES.map((url, index) => (
               <div
                 key={`common-${url}-${index}`}
-                className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_8px_30px_rgba(15,33,51,0.06)]"
+                className="overflow-hidden rounded-xl border border-line/80 bg-white"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

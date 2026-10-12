@@ -58,7 +58,7 @@ function formatYen(value: number) {
 
 export function CruisePriceTable() {
   return (
-    <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-line bg-white shadow-[0_8px_30px_rgba(15,33,51,0.06)]">
+    <div className="overflow-hidden rounded-xl border border-line/80 bg-white">
       <div className="bg-jade px-4 py-3">
         <h3 className="text-base font-semibold text-white md:text-lg">
           ▶ 郵輪自由行包車價格表

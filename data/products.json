@@ -4,11 +4,11 @@
     "category": "tourism",
     "name": "沖繩包車一日遊",
     "summary": "日文／中文司機可選，4／舒適6／豪華6／9人座，6–10小時方案。",
-    "description": "省去自駕壓力，行程完全客製。提供 4 人座、舒適 6 人座、豪華 6 人座 Alphard、9 人座 Hiace，包車時間 6／8／10 小時可選，日文／中文司機分檔報價。費用已含首張兒童座椅、高速與停車、司機用餐與空車回送、燃油及消費稅；景點門票、超時費與個人消費另計。正規綠牌營業車，中文客服全程支援。",
+    "description": "省去自駕壓力，行程完全客製。提供 4 人座、舒適 6 人座、豪華 6 人座、9 人座，包車時間 6／8／10 小時可選，日文／中文司機分檔報價。費用已含首張兒童座椅、高速與停車、司機用餐與空車回送、燃油及消費稅；景點門票、超時費與個人消費另計。正規綠牌營業車，中文客服全程支援。",
     "price": 25000,
     "priceUnit": "起/天",
     "capacity": 9,
-    "vehicleType": "Crown/Prius · Serena/Voxy · Alphard · Hiace",
+    "vehicleType": "轎車 · 舒適6人座 · 豪華6人座 · 9人座",
     "imageUrl": "/products/day-tour/01-cover.jpg",
     "features": [
       "正規綠牌",
@@ -18,8 +18,35 @@
     ],
     "published": true,
     "createdAt": "2026-07-01T00:00:00.000Z",
-    "updatedAt": "2026-10-12T14:04:00.000Z",
+    "updatedAt": "2026-10-12T14:50:00.000Z",
     "detailImages": [],
+    "showPrice": true
+  },
+  {
+    "id": "seed-tourism-bus",
+    "category": "bus",
+    "name": "沖繩巴士包車",
+    "summary": "小巴／中巴／大巴可選，小巴可選中文司機；適合家族、公司團與團體自由行。",
+    "description": "沖繩合法綠牌巴士包車，提供小巴 13／16／21 人座、中巴 27 人座、大巴 49 人座，包車時間 6／8／10 小時可選。小巴可加購中文司機，亦可加購中文導遊或隨車工作人員。行李艙空間充足，適合接機送機、飯店移動、家族親友與公司團體出遊。費用已含消費稅、司機與車輛使用、燃油及安心保險；景點門票、高速費與停車費另計。建議提前預訂以確保空車。",
+    "price": 70000,
+    "priceUnit": "起/天",
+    "capacity": 49,
+    "vehicleType": "小巴 · 中巴 · 大巴",
+    "imageUrl": "/products/bus/01-cover.jpg",
+    "features": [
+      "正規綠牌",
+      "小巴中文司機可選",
+      "行程客製",
+      "中文客服"
+    ],
+    "published": true,
+    "createdAt": "2026-10-12T15:00:00.000Z",
+    "updatedAt": "2026-10-12T15:00:00.000Z",
+    "detailImages": [
+      "/products/bus/02-why.jpg",
+      "/products/bus/03-vehicles.jpg",
+      "/products/bus/04-usecases.jpg"
+    ],
     "showPrice": true
   },
   {
@@ -31,7 +58,7 @@
     "price": 31000,
     "priceUnit": "起/趟",
     "capacity": 9,
-    "vehicleType": "Toyota / Alphard / Hiace / 巴士",
+    "vehicleType": "轎車 · 豪華6人座 · 9人座 · 巴士",
     "imageUrl": "/products/cruise/01-cover.jpg",
     "features": [
       "碼頭接送",
@@ -41,7 +68,7 @@
     ],
     "published": true,
     "createdAt": "2026-10-12T14:20:00.000Z",
-    "updatedAt": "2026-10-12T14:20:00.000Z",
+    "updatedAt": "2026-10-12T14:50:00.000Z",
     "detailImages": [
       "/products/cruise/02-why.jpg",
       "/products/cruise/03-routes.jpg",
@@ -50,26 +77,84 @@
     "showPrice": true
   },
   {
-    "id": "seed-airport-naha",
+    "id": "seed-airport-bus",
     "category": "airport",
-    "name": "那霸機場接送",
-    "summary": "那霸機場往返飯店、市區與主要住宿區。",
-    "description": "航班落地後舉牌接機，協助行李上車；送機可依航班時間安排出發，減少趕路壓力。",
-    "price": 4500,
+    "name": "那霸機場巴士接送機",
+    "summary": "10–45人團體巴士接送，依區域分檔報價；舉牌接機直達飯店更省心。",
+    "description": "專為多人數團體設計的那霸機場巴士接送服務，提供小巴 13／16／21 人座與大巴 45 人座。依飯店所在區域（A–J）分檔計價，出關後可安排舉牌會合，直送指定飯店。服務時間 7:00–22:00，約定時間免費待機 30 分鐘。費用已含消費稅、司機與車輛使用、燃油及安心保險；高速費與停車費另計。請如實填寫人數與行李件數以便配車，建議提前預訂。",
+    "price": 25000,
     "priceUnit": "起/趟",
-    "capacity": 4,
-    "vehicleType": "轎車 / Alphard",
-    "imageUrl": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80",
+    "capacity": 45,
+    "vehicleType": "小巴13／16／21 · 大巴45",
+    "imageUrl": "/products/airport-bus/01-cover.jpg",
     "features": [
       "舉牌接機",
-      "準點送機",
-      "行李協助",
-      "夜間可約"
+      "分區報價",
+      "行李空間大",
+      "中文客服"
     ],
     "published": true,
-    "createdAt": "2026-07-01T00:00:00.000Z",
-    "updatedAt": "2026-10-12T14:04:00.000Z",
-    "detailImages": [],
+    "createdAt": "2026-10-12T15:25:00.000Z",
+    "updatedAt": "2026-10-12T15:25:00.000Z",
+    "detailImages": [
+      "/products/airport-bus/02-why.jpg",
+      "/products/airport-bus/03-zones.jpg",
+      "/products/airport-bus/04-vehicles.jpg"
+    ],
+    "showPrice": true
+  },
+  {
+    "id": "seed-airport-car",
+    "category": "airport",
+    "name": "那霸機場專車接送機",
+    "summary": "4／6／9人座商務車接送，依區域分檔報價；舉牌接機直達飯店。",
+    "description": "那霸機場專車接送服務，提供 4／6／9 人座商務車，依飯店所在區域（A–J）分檔計價。出關後可安排舉牌會合，直送指定飯店；亦可飯店送機至機場。服務時間 7:00–22:00，約定時間免費待機 30 分鐘。可加購安全座椅，亦可升級尊榮 6 人座／9 人座車款。費用已含消費稅、司機與車輛使用、燃油及安心保險；高速費與停車費另計。請如實填寫人數與行李件數以便配車。",
+    "price": 8000,
+    "priceUnit": "起/趟",
+    "capacity": 9,
+    "vehicleType": "4人座 · 6人座 · 9人座",
+    "imageUrl": "/products/airport-car/01-cover.jpg",
+    "features": [
+      "舉牌接機",
+      "分區報價",
+      "可加兒童座椅",
+      "中文客服"
+    ],
+    "published": true,
+    "createdAt": "2026-10-12T15:32:00.000Z",
+    "updatedAt": "2026-10-12T15:32:00.000Z",
+    "detailImages": [
+      "/products/airport-car/02-why.jpg",
+      "/products/airport-car/03-zones.jpg",
+      "/products/airport-car/04-vehicles.jpg"
+    ],
+    "showPrice": true
+  },
+  {
+    "id": "seed-accessible-tour",
+    "category": "accessible",
+    "name": "沖繩無障礙包車",
+    "summary": "4／8人座福祉車，可載兩台輪椅；介護證照司機陪同，行程完全客製。",
+    "description": "專為輪椅族與長者設計的沖繩無障礙福祉包車。提供 4 人座／8 人座福祉車，皆可載兩台輪椅；包車時間可選 6／8／10 小時。司機持有專業介護證照，協助上下車更安心。適合本島觀光、機場／碼頭接送與醫療往返，行程完全客製。費用已含消費稅、司機與車輛使用、燃油及安心保險；景點門票、高速費與停車費另計。福祉車行李空間有限，建議提前與客服確認。",
+    "price": 40000,
+    "priceUnit": "起/天",
+    "capacity": 8,
+    "vehicleType": "4人座福祉車 · 8人座福祉車",
+    "imageUrl": "/products/accessible/01-cover.jpg",
+    "features": [
+      "介護證照司機",
+      "可載兩台輪椅",
+      "行程客製",
+      "中文客服"
+    ],
+    "published": true,
+    "createdAt": "2026-10-12T15:35:00.000Z",
+    "updatedAt": "2026-10-12T15:35:00.000Z",
+    "detailImages": [
+      "/products/accessible/02-why.jpg",
+      "/products/accessible/03-vehicles.jpg",
+      "/products/accessible/04-usecases.jpg"
+    ],
     "showPrice": true
   }
 ]

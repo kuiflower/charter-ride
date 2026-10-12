@@ -30,24 +30,26 @@ export default async function HomePage() {
 
   return (
     <div className="bg-mist text-ink">
-      <section className="relative min-h-[100svh] overflow-hidden">
-        <div className="absolute inset-0">
+      <section className="relative bg-ink md:min-h-[100svh] md:overflow-hidden">
+        {/* 手機：按 3:2 完整展示車輛；桌面：鋪滿視窗 */}
+        <div className="relative aspect-[3/2] w-full overflow-hidden md:absolute md:inset-0 md:aspect-auto">
           <HeroBanner />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-ink to-transparent md:hidden" />
         </div>
 
         <SiteHeader />
 
-        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 md:justify-center md:px-8 md:pb-24 md:pt-20">
+        <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-5 pb-10 pt-6 md:min-h-[100svh] md:justify-center md:px-8 md:pb-24 md:pt-20">
           <p className="animate-fade font-display text-4xl text-white md:text-6xl lg:text-7xl">
             遇見沖繩包車
           </p>
-          <h1 className="animate-rise delay-1 mt-5 max-w-2xl text-2xl font-medium leading-snug text-white md:text-4xl">
+          <h1 className="animate-rise delay-1 mt-4 max-w-2xl text-2xl font-medium leading-snug text-white md:mt-5 md:text-4xl">
             沖繩旅遊、郵輪靠港、接送機與無障礙包車
           </h1>
-          <p className="animate-rise delay-2 mt-4 max-w-xl text-base text-white/80 md:text-lg">
+          <p className="animate-rise delay-2 mt-3 max-w-xl text-base text-white/80 md:mt-4 md:text-lg">
             四大服務板塊，專屬司機陪同，手機也能輕鬆挑選套餐並預約。
           </p>
-          <div className="animate-rise delay-3 mt-8 flex flex-wrap gap-3">
+          <div className="animate-rise delay-3 mt-6 flex flex-wrap gap-3 md:mt-8">
             <a
               href="#tourism"
               className="rounded-full bg-amber px-6 py-3 text-sm font-semibold text-ink transition hover:brightness-110"

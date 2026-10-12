@@ -27,6 +27,13 @@ export const PRODUCT_CATEGORIES = [
     summary: "配備無障礙設備與貼心服務，讓行動不便旅客也能安心暢遊。",
     anchor: "accessible",
   },
+  {
+    id: "bus",
+    label: "沖繩巴士包車",
+    shortLabel: "巴士包車",
+    summary: "小巴／中巴／大巴可選，小巴可選中文司機，適合家族、公司團與團體出遊。",
+    anchor: "bus",
+  },
 ] as const;
 
 export type ProductCategoryId = (typeof PRODUCT_CATEGORIES)[number]["id"];
