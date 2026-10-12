@@ -26,7 +26,6 @@ export default async function ProductDetailPage({ params }: Props) {
     (url) => !url.includes("/04-price."),
   );
   const showCruisePriceTable = product.category === "cruise";
-  const detailImages = [...specificImages, ...COMMON_PRODUCT_TEMPLATES];
 
   return (
     <div className="min-h-screen bg-mist text-ink">
