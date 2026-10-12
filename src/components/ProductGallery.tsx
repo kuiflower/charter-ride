@@ -36,7 +36,7 @@ export function ProductGallery({ name, coverUrl, detailImages }: Props) {
                 onClick={() => setActive(url)}
                 className={`overflow-hidden rounded-xl border-2 transition ${
                   selected
-                    ? "border-jade shadow-[0_0_0_2px_rgba(45,138,106,0.2)]"
+                    ? "border-jade shadow-[0_0_0_2px_rgba(47,127,184,0.2)]"
                     : "border-transparent opacity-80 hover:opacity-100"
                 }`}
               >

@@ -69,7 +69,7 @@ export function TrustSections() {
     <>
       <section
         id="about"
-        className="relative overflow-hidden border-y border-line bg-[linear-gradient(160deg,#f3f6f4_0%,#e7efea_48%,#f7f3ea_100%)]"
+        className="relative overflow-hidden border-y border-line bg-[linear-gradient(160deg,#f2f5f9_0%,#e6eef6_48%,#f5f1ea_100%)]"
       >
         <div className="pointer-events-none absolute -right-16 top-10 h-64 w-64 rounded-full bg-jade/10 blur-3xl" />
         <div className="pointer-events-none absolute -left-10 bottom-0 h-48 w-48 rounded-full bg-amber/15 blur-3xl" />
@@ -128,7 +128,7 @@ export function TrustSections() {
       </section>
 
       <section id="trust" className="relative overflow-hidden bg-ink text-foam">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(201,162,39,0.18),transparent_40%),radial-gradient(circle_at_10%_80%,rgba(45,138,106,0.22),transparent_35%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(201,162,39,0.18),transparent_40%),radial-gradient(circle_at_10%_80%,rgba(47,127,184,0.22),transparent_35%)]" />
         <div className="relative mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-[0.2em] text-amber">Trust</p>
@@ -170,9 +170,9 @@ export function TrustSections() {
         </div>
 
         <div className="-mx-5 mt-8 overflow-x-auto px-5 md:mx-0 md:mt-10 md:overflow-visible md:px-0">
-          <div className="min-w-[640px] overflow-hidden rounded-[1.25rem] border border-[#dce3df] md:min-w-0">
+          <div className="min-w-[640px] overflow-hidden rounded-[1.25rem] border border-[#d5dee8] md:min-w-0">
             <div className="grid grid-cols-[0.7fr_1.15fr_1.15fr]">
-              <div className="bg-[#eef2f0] px-3 py-4 text-[13px] font-medium text-[#6b7872] md:px-5 md:py-5 md:text-sm">
+              <div className="bg-[#eef2f6] px-3 py-4 text-[13px] font-medium text-[#6b7582] md:px-5 md:py-5 md:text-sm">
                 對比項目
               </div>
               <div className="bg-jade px-3 py-4 text-[13px] font-semibold tracking-wide text-white md:px-5 md:py-5 md:text-sm">
@@ -186,13 +186,13 @@ export function TrustSections() {
               <div
                 key={row.label}
                 className={`grid grid-cols-[0.7fr_1.15fr_1.15fr] ${
-                  index < compareRows.length - 1 ? "border-b border-[#e6ebe8]" : ""
+                  index < compareRows.length - 1 ? "border-b border-[#e4eaf0]" : ""
                 }`}
               >
                 <div className="bg-white px-3 py-4 text-[13px] font-semibold text-ink/75 md:px-5 md:py-5 md:text-sm">
                   {row.label}
                 </div>
-                <div className="bg-[#e8f3ee] px-3 py-4 text-[13px] font-medium leading-relaxed text-jade-deep md:px-5 md:py-5 md:text-sm">
+                <div className="bg-[#e7f1f8] px-3 py-4 text-[13px] font-medium leading-relaxed text-jade-deep md:px-5 md:py-5 md:text-sm">
                   <span className="mr-1.5 inline-block text-jade md:mr-2">✓</span>
                   {row.ours}
                 </div>
@@ -205,7 +205,7 @@ export function TrustSections() {
           </div>
         </div>
 
-        <blockquote className="relative mt-12 overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,#0f2922_0%,#1a3d34_55%,#1f6b52_100%)] px-6 py-10 text-foam md:px-12 md:py-14">
+        <blockquote className="relative mt-12 overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,#0f2133_0%,#1a3550_55%,#1e5f8f_100%)] px-6 py-10 text-foam md:px-12 md:py-14">
           <p className="pointer-events-none absolute right-6 top-4 font-display text-7xl text-white/10 md:right-10 md:text-9xl">
             ”
           </p>

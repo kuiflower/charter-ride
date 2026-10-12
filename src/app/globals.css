@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #0f2922;
-  --ink-soft: #1a3d34;
-  --mist: #f3f6f4;
-  --foam: #e7efea;
-  --jade: #2d8a6a;
-  --jade-deep: #1f6b52;
+  --ink: #0f2133;
+  --ink-soft: #1a3550;
+  --mist: #f2f5f9;
+  --foam: #e6eef6;
+  --jade: #2f7fb8;
+  --jade-deep: #1e5f8f;
   --sand: #d9c4a0;
   --amber: #c9a227;
-  --line: rgba(15, 41, 34, 0.12);
+  --line: rgba(15, 33, 51, 0.12);
   --background: var(--mist);
   --foreground: var(--ink);
 }
