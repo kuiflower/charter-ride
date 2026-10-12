@@ -15,9 +15,6 @@ export function ProductGallery({ name, coverUrl }: Props) {
         alt={name}
         className="aspect-[16/11] w-full object-cover"
       />
-      <p className="border-t border-line bg-foam/50 px-4 py-2 text-xs text-ink/50">
-        商品主圖
-      </p>
     </div>
   );
 }
