@@ -1,12 +1,16 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BrandLogo } from "@/components/BrandLogo";
+import { CruisePriceTable } from "@/components/CruisePriceTable";
 import { ProductBookingPanel } from "@/components/ProductBookingPanel";
 import { ProductGallery } from "@/components/ProductGallery";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getCategoryLabel } from "@/lib/categories";
 import { formatPrice } from "@/lib/format";
-import { getDisplayDetailImages } from "@/lib/product-templates";
+import {
+  COMMON_PRODUCT_TEMPLATES,
+  getProductSpecificDetailImages,
+} from "@/lib/product-templates";
 import { getProduct } from "@/lib/products";
 
 export const dynamic = "force-dynamic";
@@ -18,7 +22,11 @@ export default async function ProductDetailPage({ params }: Props) {
   const product = await getProduct(id);
   if (!product || !product.published) notFound();
 
-  const detailImages = getDisplayDetailImages(product.detailImages);
+  const specificImages = getProductSpecificDetailImages(product.detailImages).filter(
+    (url) => !url.includes("/04-price."),
+  );
+  const showCruisePriceTable = product.category === "cruise";
+  const detailImages = [...specificImages, ...COMMON_PRODUCT_TEMPLATES];
 
   return (
     <div className="min-h-screen bg-mist text-ink">
@@ -79,17 +87,37 @@ export default async function ProductDetailPage({ params }: Props) {
           </p>
         </div>
 
-        {detailImages.length > 0 ? (
+        {specificImages.length > 0 ? (
           <div className="mx-auto mt-12 flex max-w-3xl flex-col gap-3">
-            {detailImages.map((url, index) => (
+            {specificImages.map((url, index) => (
               <div
-                key={`${url}-${index}`}
+                key={`specific-${url}-${index}`}
                 className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_8px_30px_rgba(15,33,51,0.06)]"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={url}
                   alt={`${product.name} 詳情圖 ${index + 1}`}
+                  className="block h-auto w-full"
+                />
+              </div>
+            ))}
+          </div>
+        ) : null}
+
+        {showCruisePriceTable ? <CruisePriceTable /> : null}
+
+        {COMMON_PRODUCT_TEMPLATES.length > 0 ? (
+          <div className="mx-auto mt-12 flex max-w-3xl flex-col gap-3">
+            {COMMON_PRODUCT_TEMPLATES.map((url, index) => (
+              <div
+                key={`common-${url}-${index}`}
+                className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_8px_30px_rgba(15,33,51,0.06)]"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={url}
+                  alt={`${product.name} 說明圖 ${index + 1}`}
                   className="block h-auto w-full"
                 />
               </div>
