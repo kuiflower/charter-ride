@@ -12,16 +12,16 @@ export const dynamic = "force-dynamic";
 
 const steps = [
   {
-    title: "選擇套餐",
-    text: "瀏覽車型與行程方案，按人數與場景挑選。",
+    title: "聯繫客服",
+    text: "加入官方 LINE／WhatsApp，告知旅遊日期、人數與需求。",
   },
   {
-    title: "確認行程",
-    text: "告訴我們時間、上車點與目的地，即可報價。",
+    title: "確認預約",
+    text: "確認行程細節與報價，預付訂金即可鎖定。",
   },
   {
-    title: "專屬接駕",
-    text: "司機準時抵達，全程陪同，行程靈活調整。",
+    title: "開始行程",
+    text: "專屬接駕，司機準時抵達，行程靈活調整。",
   },
 ];
 
@@ -65,9 +65,9 @@ export default async function HomePage() {
       </section>
 
       <section id="how-it-works" className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <p className="text-sm uppercase tracking-[0.2em] text-jade-deep">How it works</p>
-        <h2 className="mt-3 font-display text-3xl md:text-5xl">三步出發</h2>
-        <p className="mt-3 max-w-xl text-ink/70">流程簡單清晰，適合手機快速完成預約。</p>
+        <p className="text-sm uppercase tracking-[0.2em] text-jade-deep">Booking</p>
+        <h2 className="mt-3 font-display text-3xl md:text-5xl">預訂流程</h2>
+        <p className="mt-3 max-w-xl text-ink/70">三步完成預約，流程簡單清楚。</p>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {steps.map((step, index) => (
             <div key={step.title} className="border-t border-line pt-5">
