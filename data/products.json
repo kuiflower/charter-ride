@@ -52,14 +52,14 @@
   {
     "id": "seed-cruise-shore",
     "category": "cruise",
-    "name": "沖繩郵輪包車一日遊",
+    "name": "沖繩郵輪靠港包車",
     "summary": "本島岸上觀光 6–10 小時，碼頭接送、預留回港緩衝，準時登船更安心。",
     "description": "專為郵輪靠港旅客設計的岸上觀光包車。下船後碼頭接送，可選擇經典路線或完全客製景點；依離港時間與路況預留安全緩衝，降低誤船風險。提供 4／6／9 人座與福祉車、小巴／大巴方案，日文／中文司機可選。適合家庭、長輩與首次訪沖旅客。景點門票、高速費與停車費另計。",
     "price": 31000,
     "priceUnit": "起/趟",
     "capacity": 9,
     "vehicleType": "轎車 · 豪華6人座 · 9人座 · 巴士",
-    "imageUrl": "/products/cruise/01-cover.jpg",
+    "imageUrl": "/products/cruise/01-cover-v2.jpg",
     "features": [
       "碼頭接送",
       "準時回港",
@@ -68,7 +68,7 @@
     ],
     "published": true,
     "createdAt": "2026-10-12T14:20:00.000Z",
-    "updatedAt": "2026-10-12T14:50:00.000Z",
+    "updatedAt": "2026-10-12T16:10:00.000Z",
     "detailImages": [
       "/products/cruise/02-why.jpg",
       "/products/cruise/03-routes.jpg",

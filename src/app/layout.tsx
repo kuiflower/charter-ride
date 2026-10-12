@@ -21,6 +21,13 @@ export const metadata: Metadata = {
     template: "遇見沖繩包車 | %s",
   },
   description: "沖繩包車服務：機場接送、景點行程與深度遊，手機也能輕鬆預約。",
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon.ico", sizes: "48x48" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
+  },
 };
 
 export default function RootLayout({
