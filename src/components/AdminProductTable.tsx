@@ -28,7 +28,11 @@ export function AdminProductTable({ products }: { products: Product[] }) {
     <div className="space-y-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="font-display text-lg text-jade-deep">遇見沖繩包車</p>
+          <div className="flex items-center gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/brand/logo-mark.png" alt="" className="h-8 w-8 object-contain" />
+            <p className="font-display text-lg text-jade-deep">遇見沖繩包車</p>
+          </div>
           <h1 className="mt-1 font-display text-3xl md:text-4xl">產品管理</h1>
           <p className="mt-1 text-sm text-ink/65">
             新建產品時請選擇四大板塊之一，發佈後會出現在對應前台區塊。

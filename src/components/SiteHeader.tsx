@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import { BrandLogo } from "@/components/BrandLogo";
 import { PRODUCT_CATEGORIES } from "@/lib/categories";
 
 export function SiteHeader() {
@@ -18,12 +18,7 @@ export function SiteHeader() {
   return (
     <header className="absolute inset-x-0 top-0 z-30">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 md:px-8">
-        <Link
-          href="/"
-          className="font-display text-2xl font-semibold tracking-wide text-[#ffffff] drop-shadow-[0_2px_10px_rgba(0,0,0,0.75)] md:text-3xl"
-        >
-          遇見沖繩包車
-        </Link>
+        <BrandLogo variant="light" />
 
         <nav className="hidden items-center gap-5 text-sm text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] lg:flex">
           {links.map((link) => (

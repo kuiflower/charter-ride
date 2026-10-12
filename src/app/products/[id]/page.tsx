@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BrandLogo } from "@/components/BrandLogo";
 import { ProductBookingPanel } from "@/components/ProductBookingPanel";
 import { ProductGallery } from "@/components/ProductGallery";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -22,9 +23,7 @@ export default async function ProductDetailPage({ params }: Props) {
     <div className="min-h-screen bg-mist text-ink">
       <header className="border-b border-line bg-white/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
-          <Link href="/" className="font-display text-2xl">
-            遇見沖繩包車
-          </Link>
+          <BrandLogo variant="dark" />
           <Link href={`/#${product.category}`} className="text-sm text-jade-deep">
             返回{getCategoryLabel(product.category)}
           </Link>

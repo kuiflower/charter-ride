@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { AdminLoginForm } from "@/components/AdminLoginForm";
 import { AdminProductTable } from "@/components/AdminProductTable";
+import { BrandLogo } from "@/components/BrandLogo";
 import { isAdminAuthenticated } from "@/lib/auth";
 import { listProducts } from "@/lib/products";
 
@@ -13,9 +13,7 @@ export default async function AdminPage() {
     return (
       <div className="min-h-screen bg-mist px-5 py-16">
         <div className="mb-8 text-center">
-          <Link href="/" className="font-display text-2xl text-ink">
-            遇見沖繩包車
-          </Link>
+          <BrandLogo variant="dark" className="justify-center" />
         </div>
         <AdminLoginForm />
       </div>
