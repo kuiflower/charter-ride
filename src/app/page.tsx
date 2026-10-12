@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HeroBanner } from "@/components/HeroBanner";
 import { InquiryForm } from "@/components/InquiryForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -31,15 +32,7 @@ export default async function HomePage() {
     <div className="bg-mist text-ink">
       <section className="relative min-h-[100svh] overflow-hidden">
         <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=2400&q=80"
-            alt="公路與遠山"
-            className="animate-drift h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/50 to-ink/80" />
-          <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-ink/70 to-transparent" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(201,162,39,0.22),transparent_45%)]" />
+          <HeroBanner />
         </div>
 
         <SiteHeader />
