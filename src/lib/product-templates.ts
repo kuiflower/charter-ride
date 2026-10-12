@@ -17,7 +17,8 @@ const templateSet = new Set<string>(COMMON_PRODUCT_TEMPLATES);
 
 export function isCommonTemplateUrl(url: string) {
   if (templateSet.has(url)) return true;
-  // 相容舊資料：day-tour 目錄下非封面圖一律視為模版
+  // 相容舊資料：僅 day-tour 目錄下非封面圖視為通用模版
+  // /products/cruise/ 等商品專屬圖不屬於通用模版
   return (
     url.startsWith("/products/day-tour/") && !url.includes("/01-cover.")
   );
