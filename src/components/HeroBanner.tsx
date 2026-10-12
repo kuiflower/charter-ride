@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    src: "/hero/alphard.jpg",
-    alt: "豐田阿爾法豪華包車",
+    src: "/hero/hiace.jpg?v=jdm2",
+    alt: "豐田海獅團體包車",
   },
   {
-    src: "/hero/hiace.jpg",
-    alt: "豐田海獅團體包車",
+    src: "/hero/alphard.jpg?v=1",
+    alt: "豐田阿爾法豪華包車",
   },
 ] as const;
 
