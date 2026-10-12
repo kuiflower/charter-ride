@@ -4,7 +4,7 @@
     "category": "tourism",
     "name": "沖繩包車一日遊",
     "summary": "日文／中文司機可選，4／舒適6／豪華6／9人座，6–10小時方案。",
-    "description": "省去自駕壓力，行程完全客製。提供 4 人座、6 人座 Alphard、9 人座 Hiace 與福祉車方案，包車時間 6–10 小時可選。含司機費、車費、稅金、燃油與乘客保險；景點門票、高速費與停車費另計。可預約兒童安全座椅，亦可加購尊榮版車型升級。正規綠牌營業車與在地司機服務，中文客服全程支援。",
+    "description": "省去自駕壓力，行程完全客製。提供 4 人座、舒適 6 人座、豪華 6 人座 Alphard、9 人座 Hiace，包車時間 6／8／10 小時可選，日文／中文司機分檔報價。費用已含首張兒童座椅、高速與停車、司機用餐與空車回送、燃油及消費稅；景點門票、超時費與個人消費另計。正規綠牌營業車，中文客服全程支援。",
     "price": 25000,
     "priceUnit": "起/天",
     "capacity": 9,
@@ -18,12 +18,13 @@
     ],
     "published": true,
     "createdAt": "2026-07-01T00:00:00.000Z",
-    "updatedAt": "2026-10-12T12:47:00.000Z",
+    "updatedAt": "2026-10-12T12:52:00.000Z",
     "detailImages": [
       "/products/day-tour/02-highlights.jpg",
       "/products/day-tour/03-vehicles.jpg",
       "/products/day-tour/04-price.jpg",
       "/products/day-tour/05-include.jpg",
+      "/products/day-tour/09-notes.jpg",
       "/products/day-tour/06-family.jpg",
       "/products/day-tour/07-upgrade.jpg",
       "/products/day-tour/08-trust.jpg"
