@@ -8,7 +8,7 @@
     "price": 28000,
     "priceUnit": "起/天",
     "capacity": 9,
-    "vehicleType": "Toyota / Alphard / Hiace",
+    "vehicleType": "Crown/Prius · Serena/Voxy · Alphard · Hiace",
     "imageUrl": "/products/day-tour/01-cover.jpg",
     "features": [
       "正規綠牌",
@@ -18,7 +18,7 @@
     ],
     "published": true,
     "createdAt": "2026-07-01T00:00:00.000Z",
-    "updatedAt": "2026-10-12T12:24:00.000Z",
+    "updatedAt": "2026-10-12T12:34:00.000Z",
     "detailImages": [
       "/products/day-tour/02-highlights.jpg",
       "/products/day-tour/03-vehicles.jpg",
