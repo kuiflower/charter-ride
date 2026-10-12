@@ -86,14 +86,17 @@ export default async function ProductDetailPage({ params }: Props) {
         <div className="mt-12">
           <h2 className="font-display text-2xl">產品詳情圖</h2>
           {detailImages.length > 0 ? (
-            <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-5 mx-auto flex max-w-3xl flex-col gap-3">
               {detailImages.map((url, index) => (
-                <div key={`${url}-${index}`} className="overflow-hidden rounded-2xl bg-white">
+                <div
+                  key={`${url}-${index}`}
+                  className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_8px_30px_rgba(15,33,51,0.06)]"
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={url}
                     alt={`${product.name} 詳情圖 ${index + 1}`}
-                    className="aspect-[4/3] w-full object-cover"
+                    className="block h-auto w-full"
                   />
                 </div>
               ))}
