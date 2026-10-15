@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
 
 const socialLinks = [
@@ -64,9 +63,6 @@ export function SiteFooter() {
               koueki.gojisyou@gmail.com
             </a>
             <p>沖縄県那覇市具志3-25-17</p>
-            <Link href="/admin" className="hover:text-white">
-              管理後台
-            </Link>
           </div>
         </div>
 

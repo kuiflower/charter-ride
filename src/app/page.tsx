@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { HeroBanner } from "@/components/HeroBanner";
 import { InquiryForm } from "@/components/InquiryForm";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -90,28 +89,18 @@ export default async function HomePage() {
             className={sectionIndex % 2 === 0 ? "bg-foam/70 py-16 md:py-24" : "py-16 md:py-24"}
           >
             <div className="mx-auto max-w-6xl px-5 md:px-8">
-              <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.2em] text-jade-deep">
-                    {category.shortLabel}
-                  </p>
-                  <h2 className="mt-3 font-display text-3xl md:text-5xl">{category.label}</h2>
-                  <p className="mt-3 max-w-2xl text-ink/70">{category.summary}</p>
-                </div>
-                <Link
-                  href="/admin"
-                  className="text-sm text-jade-deep underline-offset-4 hover:underline"
-                >
-                  後台新增此板塊產品
-                </Link>
+              <div>
+                <p className="text-sm uppercase tracking-[0.2em] text-jade-deep">
+                  {category.shortLabel}
+                </p>
+                <h2 className="mt-3 font-display text-3xl md:text-5xl">{category.label}</h2>
+                <p className="mt-3 max-w-2xl text-ink/70">{category.summary}</p>
               </div>
 
               {items.length === 0 ? (
                 <div className="mt-10 rounded-[1.5rem] border border-dashed border-line bg-white/70 px-6 py-14 text-center">
-                  <p className="font-display text-2xl">此板塊暫無已發佈產品</p>
-                  <p className="mt-2 text-sm text-ink/60">
-                    請到後台新建產品，並選擇「{category.label}」。
-                  </p>
+                  <p className="font-display text-2xl">此板塊暫無產品</p>
+                  <p className="mt-2 text-sm text-ink/60">請稍後再查看，或聯絡我們諮詢行程。</p>
                 </div>
               ) : (
                 <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
