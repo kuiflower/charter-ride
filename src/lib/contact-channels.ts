@@ -6,7 +6,7 @@
  */
 export const LINE_CONTACT = {
   addFriendUrl: "https://lin.ee/Uit0TI1",
-  accountId: "@736lkqay",
+  accountId: "@meetingokinawa",
   qrImage: "/brand/line-qr.png",
   displayName: "遇見沖繩包車",
 } as const;

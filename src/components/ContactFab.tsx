@@ -6,13 +6,25 @@ import { LINE_CONTACT } from "@/lib/contact-channels";
 
 function LineAppIcon({ className = "h-14 w-14" }: { className?: string }) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/brand/line-icon.png"
-      alt=""
-      aria-hidden="true"
-      className={`object-contain ${className}`}
-    />
+    <svg viewBox="0 0 48 48" className={className} aria-hidden="true">
+      <circle cx="24" cy="24" r="24" fill="#06C755" />
+      <path
+        fill="#fff"
+        d="M12.2 15.4c0-4.3 5.1-7.8 11.8-7.8s11.8 3.5 11.8 7.8-5.1 7.8-11.8 7.8c-.7 0-1.4 0-2.1-.1l-3.6 2.3c-.3.2-.7 0-.7-.4l.2-2.5C13.5 20.6 12.2 18.1 12.2 15.4Z"
+      />
+      <text
+        x="24"
+        y="17.2"
+        textAnchor="middle"
+        fill="#06C755"
+        fontSize="7.2"
+        fontWeight="700"
+        fontFamily="Arial, Helvetica, sans-serif"
+        letterSpacing="0.4"
+      >
+        LINE
+      </text>
+    </svg>
   );
 }
 
@@ -66,7 +78,7 @@ export function ContactFab() {
           aria-label="開啟 LINE 客服"
           aria-expanded={open}
           onClick={() => setOpen(true)}
-          className="inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-[1.15rem] shadow-[0_12px_28px_rgba(15,33,51,0.3)] transition hover:scale-105 hover:brightness-110"
+          className="inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-full shadow-[0_12px_28px_rgba(15,33,51,0.3)] transition hover:scale-105 hover:brightness-110"
         >
           <LineAppIcon className="h-full w-full" />
         </button>
@@ -160,7 +172,7 @@ export function ContactFab() {
                 rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-[#06C755] px-5 py-3.5 text-sm font-semibold text-white shadow-md transition hover:brightness-110"
               >
-                <LineAppIcon className="h-7 w-7 rounded-md" />
+                <LineAppIcon className="h-7 w-7 rounded-full" />
                 開啟 LINE 加入好友
               </a>
 
