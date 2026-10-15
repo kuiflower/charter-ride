@@ -33,9 +33,13 @@ const socialLinks = [
     label: "Threads",
     className: "bg-white",
     icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-ink">
-        <path d="M16.5 9.48c-.3-1.79-1.48-2.96-3.57-3.16-2.52-.24-4.35 1.4-4.35 3.95 0 2.53 1.64 4.2 4.21 4.2 1.55 0 2.72-.48 3.58-1.34v1.54c-.87.67-2.17 1.14-3.73 1.14-3.55 0-5.98-2.41-5.98-5.62 0-3.26 2.51-5.68 6.07-5.68 3.14 0 5.28 1.8 5.59 4.61.07.66.03 1.28-.1 1.85h-1.85c.1-.45.16-.93.13-1.49zm-3.44 3.37c-1.62 0-2.64-1.06-2.64-2.61s1.02-2.61 2.64-2.61c1.55 0 2.56 1.08 2.56 2.61s-1.01 2.61-2.56 2.61z" />
-      </svg>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="/brand/threads-icon.png"
+        alt=""
+        aria-hidden="true"
+        className="h-5 w-5 object-contain"
+      />
     ),
   },
 ] as const;
