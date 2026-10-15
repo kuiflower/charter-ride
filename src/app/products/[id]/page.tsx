@@ -5,7 +5,6 @@ import { AccessiblePriceTable } from "@/components/AccessiblePriceTable";
 import { AirportBusPriceTable } from "@/components/AirportBusPriceTable";
 import { AirportCarPriceTable } from "@/components/AirportCarPriceTable";
 import { BusPriceTable } from "@/components/BusPriceTable";
-import { CruisePriceTable } from "@/components/CruisePriceTable";
 import { ProductBookingPanel } from "@/components/ProductBookingPanel";
 import { ProductGallery } from "@/components/ProductGallery";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -29,7 +28,6 @@ export default async function ProductDetailPage({ params }: Props) {
   const specificImages = getProductSpecificDetailImages(product.detailImages).filter(
     (url) => !url.includes("/04-price."),
   );
-  const showCruisePriceTable = product.category === "cruise";
   const showBusPriceTable = product.category === "bus";
   const showAirportBusPriceTable = product.id === "seed-airport-bus";
   const showAirportCarPriceTable = product.id === "seed-airport-car";
@@ -95,7 +93,6 @@ export default async function ProductDetailPage({ params }: Props) {
         </div>
 
         {specificImages.length > 0 ||
-        showCruisePriceTable ||
         showBusPriceTable ||
         showAirportBusPriceTable ||
         showAirportCarPriceTable ||
@@ -116,7 +113,6 @@ export default async function ProductDetailPage({ params }: Props) {
               </div>
             ))}
 
-            {showCruisePriceTable ? <CruisePriceTable /> : null}
             {showBusPriceTable ? <BusPriceTable /> : null}
             {showAirportBusPriceTable ? <AirportBusPriceTable /> : null}
             {showAirportCarPriceTable ? <AirportCarPriceTable /> : null}
