@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 const steps = [
   {
     title: "聯繫客服",
-    text: "加入官方 LINE／WhatsApp，告知旅遊日期、人數與需求。",
+    text: "加入官方 LINE，告知旅遊日期、人數與需求。",
   },
   {
     title: "確認預約",
