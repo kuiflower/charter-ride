@@ -56,15 +56,15 @@ export default async function HomePage() {
       <section id="how-it-works" className="mx-auto max-w-6xl px-5 py-8 md:px-8 md:py-24">
         <p className="text-xs uppercase tracking-[0.2em] text-jade-deep md:text-sm">Booking</p>
         <h2 className="mt-2 font-display text-2xl md:mt-3 md:text-5xl">預訂流程</h2>
-        <p className="mt-1.5 max-w-xl text-sm text-ink/70 md:mt-3 md:text-base">
+        <p className="mt-1.5 max-w-xl text-[15px] text-ink/70 md:mt-3 md:text-base">
           三步完成預約，流程簡單清楚。
         </p>
         <div className="mt-5 grid gap-3 md:mt-10 md:grid-cols-3 md:gap-6">
           {steps.map((step, index) => (
             <div key={step.title} className="border-t border-line pt-3 md:pt-5">
-              <p className="text-xs text-jade-deep md:text-sm">0{index + 1}</p>
+              <p className="text-sm text-jade-deep">0{index + 1}</p>
               <h3 className="mt-1 font-display text-lg md:mt-2 md:text-2xl">{step.title}</h3>
-              <p className="mt-1 text-xs leading-relaxed text-ink/70 md:mt-2 md:text-sm">
+              <p className="mt-1 text-sm leading-relaxed text-ink/70 md:mt-2">
                 {step.text}
               </p>
             </div>
