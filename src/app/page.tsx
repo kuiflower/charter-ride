@@ -1,4 +1,5 @@
 import { HeroBanner } from "@/components/HeroBanner";
+import { HeroCtaButtons } from "@/components/HeroCtaButtons";
 import { InquiryForm } from "@/components/InquiryForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -48,20 +49,7 @@ export default async function HomePage() {
           <p className="animate-rise delay-2 mt-3 max-w-xl text-base text-white/80 md:mt-4 md:text-lg">
             四大服務板塊，專屬司機陪同，手機也能輕鬆挑選套餐並預約。
           </p>
-          <div className="animate-rise delay-3 mt-6 flex flex-wrap gap-3 md:mt-8">
-            <a
-              href="#tourism"
-              className="rounded-full bg-amber px-6 py-3 text-sm font-semibold text-ink transition hover:brightness-110"
-            >
-              查看套餐
-            </a>
-            <a
-              href="#booking"
-              className="rounded-full border border-white/40 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
-            >
-              諮詢預約
-            </a>
-          </div>
+          <HeroCtaButtons />
         </div>
       </section>
 

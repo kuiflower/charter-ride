@@ -7,6 +7,7 @@ import { AirportCarPriceTable } from "@/components/AirportCarPriceTable";
 import { BusCharterPriceGraphic } from "@/components/BusCharterPriceGraphic";
 import { BusPriceTable } from "@/components/BusPriceTable";
 import { ProductBookingPanel } from "@/components/ProductBookingPanel";
+import { ProductCtaButtons } from "@/components/ProductCtaButtons";
 import { ProductGallery } from "@/components/ProductGallery";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getCategoryLabel } from "@/lib/categories";
@@ -91,14 +92,7 @@ export default async function ProductDetailPage({ params }: Props) {
                 </li>
               ))}
             </ul>
-            <div className="mt-8">
-              <a
-                href="#product-booking"
-                className="inline-flex rounded-full bg-jade px-6 py-3 text-sm font-semibold text-white transition hover:bg-jade-deep"
-              >
-                前往預約
-              </a>
-            </div>
+            <ProductCtaButtons />
           </div>
         </div>
 
