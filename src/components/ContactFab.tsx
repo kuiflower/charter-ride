@@ -6,26 +6,13 @@ import { LINE_CONTACT } from "@/lib/contact-channels";
 
 function LineAppIcon({ className = "h-14 w-14" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 48 48" className={className} aria-hidden="true">
-      <circle cx="24" cy="24" r="24" fill="#06C755" />
-      <path
-        fill="#fff"
-        d="M24 9.2c-7.9 0-14.3 5.05-14.3 11.28 0 5.57 4.95 10.23 11.64 11.1l-.12 3.7c-.04.58.61.93 1.05.58l4.35-3.4c.76.1 1.55.15 2.38.15 7.9 0 14.3-5.05 14.3-11.28S31.9 9.2 24 9.2Z"
-      />
-      <text
-        x="24"
-        y="22.2"
-        textAnchor="middle"
-        dominantBaseline="middle"
-        fill="#06C755"
-        fontSize="8"
-        fontWeight="700"
-        fontFamily="Arial Black, Arial, Helvetica, sans-serif"
-        letterSpacing="0.6"
-      >
-        LINE
-      </text>
-    </svg>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/brand/line-icon.png"
+      alt=""
+      aria-hidden="true"
+      className={`object-cover ${className}`}
+    />
   );
 }
 
