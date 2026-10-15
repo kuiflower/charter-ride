@@ -67,29 +67,18 @@ export function SiteFooter() {
         <div className="border-t border-white/10 pt-6">
           <p className="text-sm font-semibold tracking-[0.18em] text-white">FOLLOW US</p>
           <div className="mt-4 flex items-center gap-3">
-            {socialLinks.map((item) =>
-              item.href ? (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={item.label}
-                  className={`inline-flex h-11 w-11 items-center justify-center rounded-full transition hover:scale-105 hover:brightness-110 ${item.className}`}
-                >
-                  {item.icon}
-                </a>
-              ) : (
-                <span
-                  key={item.name}
-                  title={item.label}
-                  aria-label={item.label}
-                  className={`inline-flex h-11 w-11 items-center justify-center rounded-full opacity-45 ${item.className}`}
-                >
-                  {item.icon}
-                </span>
-              ),
-            )}
+            {socialLinks.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={item.label}
+                className={`inline-flex h-11 w-11 items-center justify-center rounded-full transition hover:scale-105 hover:brightness-110 ${item.className}`}
+              >
+                {item.icon}
+              </a>
+            ))}
           </div>
         </div>
       </div>
