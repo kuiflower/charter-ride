@@ -4,8 +4,8 @@ import { BrandLogo } from "@/components/BrandLogo";
 const socialLinks = [
   {
     name: "Facebook",
-    href: "",
-    label: "Facebook（即將開放）",
+    href: "https://www.facebook.com/share/1CCBbKM7yk/?mibextid=wwXIfr",
+    label: "Facebook",
     className: "bg-[#1877F2]",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-white">
