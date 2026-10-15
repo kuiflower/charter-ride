@@ -29,7 +29,7 @@ export function ContactFab() {
         aria-label="開啟 LINE 客服"
         aria-expanded={open}
         onClick={openLineContact}
-        className="pointer-events-auto relative inline-flex h-14 w-14 items-center justify-center rounded-full transition hover:scale-105 hover:brightness-110 [filter:drop-shadow(0_8px_14px_rgba(15,33,51,0.28))]"
+        className="pointer-events-auto relative inline-flex h-14 w-14 items-center justify-center rounded-full transition hover:scale-105 hover:brightness-110 [filter:drop-shadow(0_3px_6px_rgba(15,33,51,0.22))]"
       >
         <span className="h-full w-full overflow-hidden rounded-full">
           <LineAppIcon className="h-full w-full" />
