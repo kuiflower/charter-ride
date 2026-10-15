@@ -56,12 +56,14 @@ export function SiteFooter() {
             </p>
           </div>
           <div className="flex flex-col gap-2 text-sm text-foam/75">
-            <a href="tel:4008001234" className="hover:text-white">
-              客服熱線 400-800-1234
+            <p className="font-medium text-white">株式会社KOUEKI</p>
+            <a href="tel:08011557881" className="hover:text-white">
+              080-1155-7881
             </a>
-            <a href="mailto:hello@meet-okinawa.local" className="hover:text-white">
-              hello@meet-okinawa.local
+            <a href="mailto:koueki.gojisyou@gmail.com" className="hover:text-white">
+              koueki.gojisyou@gmail.com
             </a>
+            <p>沖縄県那覇市具志3-25-17</p>
             <Link href="/admin" className="hover:text-white">
               管理後台
             </Link>
