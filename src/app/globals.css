@@ -36,6 +36,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
 }
 
 body {
@@ -43,6 +45,16 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), "PingFang SC", "Microsoft YaHei", sans-serif;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
+  /* 避免手机端整页被横向拖动 */
+  touch-action: pan-y;
+}
+
+body.line-modal-open {
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: none;
 }
 
 a {

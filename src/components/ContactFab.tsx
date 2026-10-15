@@ -29,15 +29,41 @@ export function ContactFab() {
 
   useEffect(() => {
     if (!open) return;
+
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
     };
     window.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+
+    const scrollY = window.scrollY;
+    const { body, documentElement } = document;
+    const prev = {
+      overflow: body.style.overflow,
+      position: body.style.position,
+      top: body.style.top,
+      width: body.style.width,
+      paddingRight: body.style.paddingRight,
+    };
+    const scrollbarGap = window.innerWidth - documentElement.clientWidth;
+
+    body.classList.add("line-modal-open");
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+    if (scrollbarGap > 0) {
+      body.style.paddingRight = `${scrollbarGap}px`;
+    }
+
     return () => {
       window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
+      body.classList.remove("line-modal-open");
+      body.style.overflow = prev.overflow;
+      body.style.position = prev.position;
+      body.style.top = prev.top;
+      body.style.width = prev.width;
+      body.style.paddingRight = prev.paddingRight;
+      window.scrollTo(0, scrollY);
     };
   }, [open]);
 
@@ -60,7 +86,7 @@ export function ContactFab() {
 
   return (
     <>
-      <div className="fixed bottom-5 right-4 z-50 md:bottom-8 md:right-6">
+      <div className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-4 z-50 md:bottom-8 md:right-6">
         <button
           type="button"
           aria-label="開啟 LINE 客服"
@@ -73,11 +99,20 @@ export function ContactFab() {
       </div>
 
       {open ? (
-        <div className="fixed inset-0 z-[60] flex items-end justify-center p-4 sm:items-center">
+        <div
+          className="fixed inset-0 z-[60] flex items-end justify-center sm:items-center"
+          style={{
+            paddingTop: "max(0.75rem, env(safe-area-inset-top))",
+            paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))",
+            paddingLeft: "max(0.75rem, env(safe-area-inset-left))",
+            paddingRight: "max(0.75rem, env(safe-area-inset-right))",
+          }}
+        >
           <button
             type="button"
             aria-label="關閉"
             className="absolute inset-0 bg-ink/55 backdrop-blur-[2px]"
+            style={{ touchAction: "none" }}
             onClick={() => setOpen(false)}
           />
 
@@ -85,10 +120,14 @@ export function ContactFab() {
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
-            className="relative z-[61] w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-[0_24px_60px_rgba(15,33,51,0.28)]"
+            className="relative z-[61] flex w-full max-w-md flex-col overflow-hidden rounded-3xl bg-white shadow-[0_24px_60px_rgba(15,33,51,0.28)]"
+            style={{
+              maxHeight: "min(78dvh, calc(100dvh - 5.5rem))",
+              overscrollBehavior: "contain",
+            }}
           >
-            <div className="flex items-start justify-between gap-3 bg-[#06C755] px-5 py-4 text-white">
-              <div>
+            <div className="flex shrink-0 items-start justify-between gap-3 bg-[#06C755] px-5 py-4 text-white">
+              <div className="min-w-0">
                 <p className="text-xs font-medium tracking-wide text-white/85">官方客服</p>
                 <h2 id={titleId} className="mt-0.5 text-lg font-semibold">
                   加入 LINE，預約更方便
@@ -98,15 +137,18 @@ export function ContactFab() {
                 type="button"
                 aria-label="關閉視窗"
                 onClick={() => setOpen(false)}
-                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/15 transition hover:bg-white/25"
+                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/20 transition hover:bg-white/30"
               >
-                <svg viewBox="0 0 24 24" className="h-4 w-4 stroke-white stroke-[2.2]" fill="none">
+                <svg viewBox="0 0 24 24" className="h-5 w-5 stroke-white stroke-[2.4]" fill="none">
                   <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
                 </svg>
               </button>
             </div>
 
-            <div className="space-y-5 px-5 py-5">
+            <div
+              className="min-h-0 flex-1 space-y-5 overflow-y-auto overscroll-contain px-5 py-5"
+              style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
+            >
               <p className="text-sm leading-relaxed text-ink/70">
                 加入「{LINE_CONTACT.displayName}」官方帳號後，直接傳日期、人數與接送地點，我們會盡快回覆報價。
               </p>
@@ -131,7 +173,7 @@ export function ContactFab() {
                 <img
                   src={LINE_CONTACT.qrImage}
                   alt="遇見沖繩包車 LINE 官方帳號二維碼"
-                  className="h-44 w-44 rounded-xl bg-white object-contain p-2 shadow-sm"
+                  className="h-40 w-40 rounded-xl bg-white object-contain p-2 shadow-sm"
                 />
                 <p className="mt-3 text-center text-xs text-ink/55">
                   手機請用 LINE 掃描；電腦可請客人掃碼，或點下方按鈕在手機開啟
@@ -164,7 +206,7 @@ export function ContactFab() {
                 開啟 LINE 加入好友
               </a>
 
-              <p className="text-center text-[11px] leading-relaxed text-ink/45">
+              <p className="pb-1 text-center text-[11px] leading-relaxed text-ink/45">
                 搜尋不到時，可先複製帳號 ID，到 LINE「加入好友」→「搜尋 ID」貼上。
               </p>
             </div>
