@@ -10,17 +10,18 @@ function LineAppIcon({ className = "h-14 w-14" }: { className?: string }) {
       <circle cx="24" cy="24" r="24" fill="#06C755" />
       <path
         fill="#fff"
-        d="M12.2 15.4c0-4.3 5.1-7.8 11.8-7.8s11.8 3.5 11.8 7.8-5.1 7.8-11.8 7.8c-.7 0-1.4 0-2.1-.1l-3.6 2.3c-.3.2-.7 0-.7-.4l.2-2.5C13.5 20.6 12.2 18.1 12.2 15.4Z"
+        d="M24 9.2c-7.9 0-14.3 5.05-14.3 11.28 0 5.57 4.95 10.23 11.64 11.1l-.12 3.7c-.04.58.61.93 1.05.58l4.35-3.4c.76.1 1.55.15 2.38.15 7.9 0 14.3-5.05 14.3-11.28S31.9 9.2 24 9.2Z"
       />
       <text
         x="24"
-        y="17.2"
+        y="22.2"
         textAnchor="middle"
+        dominantBaseline="middle"
         fill="#06C755"
-        fontSize="7.2"
+        fontSize="8"
         fontWeight="700"
-        fontFamily="Arial, Helvetica, sans-serif"
-        letterSpacing="0.4"
+        fontFamily="Arial Black, Arial, Helvetica, sans-serif"
+        letterSpacing="0.6"
       >
         LINE
       </text>
