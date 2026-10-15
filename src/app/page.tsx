@@ -53,16 +53,20 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="how-it-works" className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <p className="text-sm uppercase tracking-[0.2em] text-jade-deep">Booking</p>
-        <h2 className="mt-3 font-display text-3xl md:text-5xl">預訂流程</h2>
-        <p className="mt-3 max-w-xl text-ink/70">三步完成預約，流程簡單清楚。</p>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+      <section id="how-it-works" className="mx-auto max-w-6xl px-5 py-8 md:px-8 md:py-24">
+        <p className="text-xs uppercase tracking-[0.2em] text-jade-deep md:text-sm">Booking</p>
+        <h2 className="mt-2 font-display text-2xl md:mt-3 md:text-5xl">預訂流程</h2>
+        <p className="mt-1.5 max-w-xl text-sm text-ink/70 md:mt-3 md:text-base">
+          三步完成預約，流程簡單清楚。
+        </p>
+        <div className="mt-5 grid gap-3 md:mt-10 md:grid-cols-3 md:gap-6">
           {steps.map((step, index) => (
-            <div key={step.title} className="border-t border-line pt-5">
-              <p className="text-sm text-jade-deep">0{index + 1}</p>
-              <h3 className="mt-2 font-display text-2xl">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink/70">{step.text}</p>
+            <div key={step.title} className="border-t border-line pt-3 md:pt-5">
+              <p className="text-xs text-jade-deep md:text-sm">0{index + 1}</p>
+              <h3 className="mt-1 font-display text-lg md:mt-2 md:text-2xl">{step.title}</h3>
+              <p className="mt-1 text-xs leading-relaxed text-ink/70 md:mt-2 md:text-sm">
+                {step.text}
+              </p>
             </div>
           ))}
         </div>
@@ -74,15 +78,23 @@ export default async function HomePage() {
           <section
             key={category.id}
             id={category.anchor}
-            className={sectionIndex % 2 === 0 ? "bg-foam/70 py-16 md:py-24" : "py-16 md:py-24"}
+            className={
+              sectionIndex % 2 === 0
+                ? "bg-foam/70 py-10 md:py-24"
+                : "py-10 md:py-24"
+            }
           >
             <div className="mx-auto max-w-6xl px-5 md:px-8">
               <div>
-                <p className="text-sm uppercase tracking-[0.2em] text-jade-deep">
+                <p className="text-xs uppercase tracking-[0.2em] text-jade-deep md:text-sm">
                   {category.shortLabel}
                 </p>
-                <h2 className="mt-3 font-display text-3xl md:text-5xl">{category.label}</h2>
-                <p className="mt-3 max-w-2xl text-ink/70">{category.summary}</p>
+                <h2 className="mt-2 font-display text-2xl md:mt-3 md:text-5xl">
+                  {category.label}
+                </h2>
+                <p className="mt-2 max-w-2xl text-sm text-ink/70 md:mt-3 md:text-base">
+                  {category.summary}
+                </p>
               </div>
 
               {items.length === 0 ? (
@@ -91,7 +103,7 @@ export default async function HomePage() {
                   <p className="mt-2 text-sm text-ink/60">請稍後再查看，或聯絡我們諮詢行程。</p>
                 </div>
               ) : (
-                <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-6 grid gap-6 sm:grid-cols-2 md:mt-10 lg:grid-cols-3">
                   {items.map((product, index) => (
                     <ProductCard key={product.id} product={product} index={index} />
                   ))}
