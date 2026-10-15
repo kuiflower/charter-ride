@@ -34,7 +34,16 @@ export default async function ProductDetailPage({ params }: Props) {
   const showAirportCarPriceTable = product.id === "seed-airport-car";
   const showAccessiblePriceTable = product.category === "accessible";
   const showBusCharterPriceGraphic = product.id === "seed-airport-bus";
-  const commonBlocks = COMMON_PRODUCT_TEMPLATES.map((url) =>
+  // 無障礙包車不適用一般轎車／一日遊價目等通用模版圖
+  const accessibleHiddenTemplates = new Set([
+    "/products/day-tour/03-vehicles.jpg",
+    "/products/day-tour/12-space.jpg",
+    "/products/day-tour/13-luggage.jpg",
+    "/products/day-tour/04-price.jpg",
+  ]);
+  const commonBlocks = COMMON_PRODUCT_TEMPLATES.filter(
+    (url) => !(showAccessiblePriceTable && accessibleHiddenTemplates.has(url)),
+  ).map((url) =>
     showBusCharterPriceGraphic && url.includes("/04-price.")
       ? ({ kind: "bus-charter-price" } as const)
       : ({ kind: "image", url } as const),
