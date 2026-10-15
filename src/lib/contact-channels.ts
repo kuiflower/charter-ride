@@ -1,38 +1,10 @@
 /**
- * 右下角客服浮動按鈕連結設定。
- * 之後把各渠道正式連結填進 href 即可；留空則點擊會提示「即將開放」。
+ * 右下角 LINE 加好友連結。
+ * 格式與行腳網站相同：https://page.line.me/{BasicID}?openQrModal=true
  *
- * 範例：
- * - LINE: https://line.me/R/ti/p/@xxxxx
- * - WhatsApp: https://wa.me/819012345678
- * - WeChat: 可填官方頁或稍後改為顯示二維碼
- * - KakaoTalk: https://open.kakao.com/o/xxxxx
+ * 請提供你們 LINE 官方帳號的 Basic ID（例如 024loouz 或 @xxxxx），
+ * 填入下方後即可上線。
  */
-export type ContactChannel = {
-  id: "line" | "whatsapp" | "wechat" | "kakaotalk";
-  label: string;
-  href: string;
-};
-
-export const CONTACT_CHANNELS: ContactChannel[] = [
-  {
-    id: "line",
-    label: "LINE",
-    href: "",
-  },
-  {
-    id: "whatsapp",
-    label: "WhatsApp",
-    href: "",
-  },
-  {
-    id: "wechat",
-    label: "微信",
-    href: "",
-  },
-  {
-    id: "kakaotalk",
-    label: "KakaoTalk",
-    href: "",
-  },
-];
+export const LINE_ADD_FRIEND_URL = "";
+// 填好後格式示例：
+// export const LINE_ADD_FRIEND_URL = "https://page.line.me/你的BasicID?openQrModal=true";
