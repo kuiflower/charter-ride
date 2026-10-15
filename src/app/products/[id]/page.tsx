@@ -4,6 +4,7 @@ import { BrandLogo } from "@/components/BrandLogo";
 import { AccessiblePriceTable } from "@/components/AccessiblePriceTable";
 import { AirportBusPriceTable } from "@/components/AirportBusPriceTable";
 import { AirportCarPriceTable } from "@/components/AirportCarPriceTable";
+import { BusCharterPriceGraphic } from "@/components/BusCharterPriceGraphic";
 import { BusPriceTable } from "@/components/BusPriceTable";
 import { ProductBookingPanel } from "@/components/ProductBookingPanel";
 import { ProductGallery } from "@/components/ProductGallery";
@@ -32,6 +33,12 @@ export default async function ProductDetailPage({ params }: Props) {
   const showAirportBusPriceTable = product.id === "seed-airport-bus";
   const showAirportCarPriceTable = product.id === "seed-airport-car";
   const showAccessiblePriceTable = product.category === "accessible";
+  const showBusCharterPriceGraphic = product.id === "seed-airport-bus";
+  const commonBlocks = COMMON_PRODUCT_TEMPLATES.map((url) =>
+    showBusCharterPriceGraphic && url.includes("/04-price.")
+      ? ({ kind: "bus-charter-price" } as const)
+      : ({ kind: "image", url } as const),
+  );
 
   return (
     <div className="min-h-screen bg-mist text-ink">
@@ -97,7 +104,7 @@ export default async function ProductDetailPage({ params }: Props) {
         showAirportBusPriceTable ||
         showAirportCarPriceTable ||
         showAccessiblePriceTable ||
-        COMMON_PRODUCT_TEMPLATES.length > 0 ? (
+        commonBlocks.length > 0 ? (
           <div className="mx-auto mt-8 flex max-w-3xl flex-col gap-2">
             {specificImages.map((url, index) => (
               <div
@@ -118,19 +125,28 @@ export default async function ProductDetailPage({ params }: Props) {
             {showAirportCarPriceTable ? <AirportCarPriceTable /> : null}
             {showAccessiblePriceTable ? <AccessiblePriceTable /> : null}
 
-            {COMMON_PRODUCT_TEMPLATES.map((url, index) => (
-              <div
-                key={`common-${url}-${index}`}
-                className="overflow-hidden rounded-xl border border-line/80 bg-white"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={url}
-                  alt={`${product.name} 說明圖 ${index + 1}`}
-                  className="block h-auto w-full"
-                />
-              </div>
-            ))}
+            {commonBlocks.map((block, index) =>
+              block.kind === "bus-charter-price" ? (
+                <div
+                  key={`common-bus-charter-price-${index}`}
+                  className="overflow-hidden rounded-xl border border-line/80 bg-white"
+                >
+                  <BusCharterPriceGraphic />
+                </div>
+              ) : (
+                <div
+                  key={`common-${block.url}-${index}`}
+                  className="overflow-hidden rounded-xl border border-line/80 bg-white"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={block.url}
+                    alt={`${product.name} 說明圖 ${index + 1}`}
+                    className="block h-auto w-full"
+                  />
+                </div>
+              ),
+            )}
           </div>
         ) : null}
 
